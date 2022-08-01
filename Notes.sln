@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Cli", "src\Notes.Cli\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes", "src\Notes\Notes.csproj", "{F6BB735B-C64E-4DC9-A3E7-C2860CD5C684}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Tests", "src\Notes.Tests\Notes.Tests.csproj", "{DE0287CC-27D0-427C-A822-621DCDFC2C7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F6BB735B-C64E-4DC9-A3E7-C2860CD5C684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6BB735B-C64E-4DC9-A3E7-C2860CD5C684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6BB735B-C64E-4DC9-A3E7-C2860CD5C684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0287CC-27D0-427C-A822-621DCDFC2C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0287CC-27D0-427C-A822-621DCDFC2C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0287CC-27D0-427C-A822-621DCDFC2C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0287CC-27D0-427C-A822-621DCDFC2C7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
