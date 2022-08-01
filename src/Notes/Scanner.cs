@@ -55,10 +55,17 @@ public class Scanner
                 AddToken(TokenType.RIGHT_PAREN);
                 break;
             case '[':
-                AddToken(TokenType.LEFT_BRACKET);
+                AddToken(Match('[') ?
+                    TokenType.DOUBLE_LEFT_BRACKET :
+                    TokenType.LEFT_BRACKET);
                 break;
             case ']':
-                AddToken(TokenType.RIGHT_BRACKET);
+                AddToken(Match(']') ?
+                    TokenType.DOUBLE_RIGHT_BRACKET :
+                    TokenType.RIGHT_BRACKET);
+                break;
+            case '>':
+                AddToken(TokenType.GREATER);
                 break;
             case '#':
                 AddToken(TokenType.OCTOTHORPE);
@@ -68,6 +75,9 @@ public class Scanner
                 break;
             case '_':
                 AddToken(TokenType.UNDERSCORE);
+                break;
+            case '`':
+                AddToken(TokenType.BACKTICK);
                 break;
             case ' ':
             case '\r':
@@ -96,6 +106,14 @@ public class Scanner
         AddToken(type, null);
     }
 
+    private void AddTokens(TokenType type, int count)
+    {
+        foreach (var _ in Enumerable.Range(1, count))
+        {
+            AddToken(type);
+        }
+    }
+
     private void AddToken(TokenType type, string? lexeme)
     {
         _tokens.Add(new Token(type, lexeme));
@@ -104,6 +122,15 @@ public class Scanner
     private void NextLine()
     {
         _line++;
+    }
+
+    private bool Match(char expected)
+    {
+        if (IsAtEnd()) return false;
+        if (_text[_current] != expected) return false;
+
+        Advance();
+        return true;
     }
 
     private bool IsAlpha(char c)
